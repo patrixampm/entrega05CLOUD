@@ -10,5 +10,8 @@
     "#core/*": "./core/*",
     "#dals/*": "./dals/*",
     "#pods/*": "./pods/*"
+  },
+  "scripts": {
+    "start": "node index.js"
   }
 }
