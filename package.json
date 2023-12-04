@@ -12,6 +12,8 @@
     "#pods/*": "./pods/*"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "clean": "rimraf dist",
+    "build": "npm run clean && tsc --project tsconfig.prod.json"
   }
 }
