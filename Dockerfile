@@ -15,8 +15,6 @@ RUN updatedImports="$(jq '.imports[]|=sub("./src"; ".")' ./package.json)" && ech
 COPY ./package-lock.json ./
 RUN npm ci --only=production
 
-EXPOSE 3000
-ENV PORT=3000
 ENV STATIC_FILES_PATH=./public
 ENV API_MOCK=true
 ENV AUTH_SECRET=MY_AUTH_SECRET
