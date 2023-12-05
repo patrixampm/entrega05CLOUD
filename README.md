@@ -1,4 +1,5 @@
 Para esta entrega se han realizado 3 despliegues diferentes: 
+
 1- Un despliegue manual, utilizando los datos mock de la anterior entrega, entrega04APIREST.
 Los pasos han sido los siguientes:
 - He creado una carpeta dist donde se ha generado el código a desplegar en JS.
@@ -20,3 +21,14 @@ Los pasos han sido los siguientes:
 API_MOCK=false
 - He desplegado el proyecto, que se puede ver en el siguiente enlace:
 https://mongodb-deploy.onrender.com/
+
+3- Un despliegue automático usando datos mock, un Dockerfile y Render.
+Los pasos han sido los siguientes:
+- He creado un Dockerfile, donde he dado todas las instrucciones necesarias para que Render pueda desplegar automáticamente la aplicación usando datos mock.
+- En vez de partir de este repositorio (donde se encuentra este README), se ha desplegado de manera automática a partir de una rama nueva del repositorio usado para la entrega 04-APIREST.
+- En Render las variables de entorno que se han introducido son las siguientes:
+    API_MOCK=true
+    AUTH_SECRET=AUTH_SECRET
+    SATIC_FILES_PATH=./public
+- He desplegado el proyecto, que se puede ver en el siguiente enlace:
+https://auto-deploy.onrender.com/
