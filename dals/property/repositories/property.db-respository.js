@@ -2,7 +2,7 @@ import { ObjectId } from "mongodb";
 import { propertyContext } from "../property.context.js";
 export const dbRepository = {
     getPropertyList: async (country, page, pageSize) => {
-        if (page && pageSize) {
+        if (page && pageSize && country) {
             const skip = Boolean(page) ? (page - 1) * pageSize : 0;
             return await propertyContext
                 .find({ "address.country": country })
@@ -13,7 +13,19 @@ export const dbRepository = {
                 .skip(skip)
                 .limit(pageSize)
                 .lean();
+        } else if (page && pageSize) {
+            const skip = Boolean(page) ? (page - 1) * pageSize : 0;
+            return await propertyContext
+                .find()
+                .select({
+                name: 1,
+                images: 1,
+            })
+                .skip(skip)
+                .limit(pageSize)
+                .lean();
         }
+        
         return await propertyContext.find({ "address.country": country }).lean();
     },
     getProperty: async (id) => {
